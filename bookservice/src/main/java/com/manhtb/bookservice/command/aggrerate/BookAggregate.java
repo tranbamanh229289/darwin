@@ -27,7 +27,7 @@ public class BookAggregate {
     }
 
     @CommandHandler
-    public void handle(CreateBookCommand createBookCommand) {
+    public BookAggregate(CreateBookCommand createBookCommand) {
         BookCreatedEvent bookCreatedEvent = BookCreatedEvent.builder()
                 .id(createBookCommand.getId())
                 .name(createBookCommand.getName())
