@@ -1,0 +1,20 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: book-service
+  datasource:
+    url: jdbc:mysql://localhost:3307/book
+    username: root
+    password: 2292892000
+  jpa:
+    hibernate: create-drop
+    properties:
+      dialect: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
