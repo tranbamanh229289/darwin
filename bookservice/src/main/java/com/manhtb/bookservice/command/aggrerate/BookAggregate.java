@@ -6,8 +6,6 @@ import com.manhtb.bookservice.command.command.UpdateBookCommand;
 import com.manhtb.bookservice.command.event.BookCreatedEvent;
 import com.manhtb.bookservice.command.event.BookDeletedEvent;
 import com.manhtb.bookservice.command.event.BookUpdatedEvent;
-import lombok.Getter;
-import lombok.Setter;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
@@ -57,7 +55,7 @@ public class BookAggregate {
     }
 
     @EventSourcingHandler
-    public void onCreated(BookCreatedEvent event) {
+    public void handleAggregate(BookCreatedEvent event) {
         this.id = event.getId();
         this.author = event.getAuthor();
         this.name = event.getName();
@@ -65,7 +63,7 @@ public class BookAggregate {
     }
 
     @EventSourcingHandler
-    public void onUpdate(BookUpdatedEvent event) {
+    public void hhandleAggregate(BookUpdatedEvent event) {
         this.id = event.getId();
         this.author = event.getAuthor();
         this.name = event.getName();
@@ -73,7 +71,7 @@ public class BookAggregate {
     }
 
     @EventSourcingHandler
-    public void onDelete(BookDeletedEvent event) {
+    public void handleAggregate(BookDeletedEvent event) {
         this.id = event.getId();
     }
 }

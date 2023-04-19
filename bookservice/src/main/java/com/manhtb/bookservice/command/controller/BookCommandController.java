@@ -3,7 +3,7 @@ package com.manhtb.bookservice.command.controller;
 import com.manhtb.bookservice.command.command.CreateBookCommand;
 import com.manhtb.bookservice.command.command.DeleteBookCommand;
 import com.manhtb.bookservice.command.command.UpdateBookCommand;
-import com.manhtb.bookservice.command.model.request.BookRequest;
+import com.manhtb.bookservice.model.request.BookRequest;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
