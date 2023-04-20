@@ -27,7 +27,7 @@ public class BookQueryController {
         return bookResponse;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<BookResponse> getAllBook() {
         GetAllBookQuery getAllBookQuery = new GetAllBookQuery();
         List<BookResponse> bookResponseList = queryGateway.query(getAllBookQuery, ResponseTypes.multipleInstancesOf(BookResponse.class)).join();

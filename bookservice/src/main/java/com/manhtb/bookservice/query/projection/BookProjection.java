@@ -30,7 +30,7 @@ public class BookProjection {
     }
 
     @QueryHandler
-    public List<BookResponse> getBook(GetAllBookQuery getAllBookQuery) {
+    public List<BookResponse> getAllBook(GetAllBookQuery getAllBookQuery) {
         List<Book> bookList = bookService.getAll();
         List<BookResponse> bookResponseList = new ArrayList<>();
         bookList.forEach(item -> {

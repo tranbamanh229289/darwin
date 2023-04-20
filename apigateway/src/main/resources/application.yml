@@ -2,30 +2,38 @@ server:
   port: 9000
 
 spring:
-  application: API-gateway
+  application:
+    name: API-gateway
   cloud:
     gateway:
       routes:
-        - id: bookservice
-          url: http://localhost:9001
+        - id: book-service
+          uri: http://localhost:9001
+          #Cho phép truy cập vào service
           predicates:
             - Path=/api/v1/books/**
-          filters:
-            - AuthFilter
-        - id: employeeservice
+          #Áp filter cho mọi request vào service
+#          filters:
+#            - AuthenticationFilter
+
+
+        - id: employee-service
           uri: http://localhost:9002
           predicates:
             - Path=/api/v1/employees/**
-          filters:
-            - AuthFilter
-        - id: borrowservice
-          uri: http://localhost:9003
-          predicates:
-            - Path=/api/v1/borrows/**
-          filters:
-            - AuthFilter
-      default-filters:
-        - DecupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+#          filters:
+#            - AuthenticationFilter
+
+#
+#        - id: borrowservice
+#          uri: http://localhost:9003
+#          predicates:
+#            - Path=/api/v1/borrows/**
+#          filters:
+#            - AuthFilter
+
+#      default-filters:
+#        - DecupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       globalcors:
         corsConfigurations:
           '[/**]':
